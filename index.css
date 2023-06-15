@@ -1,0 +1,565 @@
+:root {
+    --main-color: #6EA924;
+    --sub-color: #382422;
+    --bg-color: #EBEBEB;
+}
+
+body {
+    font-family: "ABeeZee", "Josefin Sans", Arial, "Hiragino Kaku Gothic ProN",
+        "Hiragino Sans", Meiryo, sans-serif;
+    font-size: 16px;
+    width: 100%;
+}
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.main-color {
+    color: var(--main-color)
+}
+
+.bg-color {
+    color: var(--bg-color);
+}
+
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+#splash {
+    /*fixedで全面に固定*/
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: var(--sub-color);
+    text-align: center;
+    color: #fff;
+}
+
+/*-----
+動画
+-----*/
+.bg-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100vh;
+    vertical-align: bottom;
+    object-fit: cover;
+}
+
+/*-----
+header
+-----*/
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 101;
+}
+
+.header-inner-wrap {
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 20px;
+    color: white;
+}
+
+.header-item-list {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
+}
+
+.resavetion {
+    background-color: var(--main-color);
+    padding: 15px 32px;
+}
+
+#music-button {
+    display: flex;
+    color: #fff;
+    margin: 16px 20px 0 auto;
+}
+
+/*-----
+mv
+-----*/
+
+.mv-section {
+    position: relative;
+    height: 100%;
+    color: white;
+}
+
+.mv-wrap {
+    display: block;
+
+}
+
+.title-wrap {
+    position: absolute;
+    top: 200px;
+    left: 160px;
+}
+
+.title-wrap p {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.title-wrap h1 {
+    font-size: 140px;
+    line-height: 1.1;
+    margin-bottom: 40px;
+}
+
+.title-wrap a {
+    font-size: 18px;
+    background-color: var(--main-color);
+    padding: 20px 48px;
+}
+
+#music-button i {
+    margin-top: -2px;
+    margin-left: 8px;
+}
+
+.mv-bottom {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.news_ticker {
+    position: absolute;
+    right: 20px;
+    bottom: 50px;
+    width: 360px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 1px solid var(--main-color);
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes hscroll {
+    0% {
+        transform: translateX(300px);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.news_ticker ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    animation: hscroll 20s linear infinite;
+}
+
+.news_ticker li {
+    display: inline-block;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown2 span {
+    /*描画位置*/
+    position: absolute;
+    left: 40px;
+    bottom: 30px;
+    /*テキストの形状*/
+    color: #eee;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    /*縦書き設定*/
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown2:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    /*丸の形状*/
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #eee;
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+    animation:
+        circlemove 1.6s ease-in-out infinite,
+        cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove {
+    0% {
+        bottom: 70px;
+    }
+
+    100% {
+        bottom: 20px;
+    }
+}
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 線の描写 */
+.scrolldown2:after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 20px;
+    left: 34px;
+    /*線の形状*/
+    width: 2px;
+    height: 50px;
+    background: #eee;
+}
+
+/*-----
+about
+-----*/
+.about-section,
+.bg-color-section {
+    width: 100%;
+    background-color: var(--bg-color);
+    color: var(--sub-color);
+}
+
+.about-section-inner-wrap,
+.bg-color-inner-wrap {
+    width: 65%;
+    padding: 140px 0;
+    margin: 0 auto;
+    display: grid;
+}
+
+.about-section-inner-wrap {
+    row-gap: 90px;
+}
+
+.section-title {
+    font-size: 80px;
+    color: var(--sub-color)
+}
+
+.title-under-line {
+    height: 8px;
+    width: 80px;
+    background-color: var(--main-color);
+    border: none;
+}
+
+.about-detail-wrap {
+    display: flex;
+    align-items: center;
+    column-gap: 100px;
+
+}
+
+.discription-wrap {
+    width: 50%;
+}
+
+.discription-title {
+    font-size: 32px;
+    margin: 40px 0 30px 0;
+}
+
+.discription-wrap p {
+    line-height: 1.7;
+}
+
+.image-wrap {
+    position: relative;
+}
+
+.image-wrap img {
+    flex: 1;
+    box-shadow: 12px 12px var(--main-color);
+}
+
+.about-detail-wrap:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+
+/*-----
+ resavetion 
+ -----*/
+.resavetion-section {
+    height: 410px;
+    text-align: center;
+    display: table;
+    width: 100%;
+}
+
+.resavetion-inner-wrap {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.resavetion-section p {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.resavetion-section a {
+    font-size: 18px;
+    color: #fff;
+    padding: 20px 50px;
+    background-color: var(--main-color);
+}
+
+/*-----
+ promotion 
+ -----*/
+.video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 50%;
+    margin-top: 70px;
+}
+
+.video-wrap iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*-----
+ footer 
+ -----*/
+footer {
+    width: 100%;
+    padding: 30px 0;
+    background-color: var(--bg-color);
+    text-align: center;
+}
+
+.sns-list {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 20px auto;
+}
+
+.facebook {
+    font-size: 12px;
+    color: #fff;
+    height: 28px;
+    padding: 7px 20px;
+    background-color: #2777F2;
+    border-radius: 5px;
+}
+
+.copy-right {
+    font-size: 14px;
+    color: var(--sub-color);
+}
+
+/*media Queries 767
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    header img {
+        width: 40%;
+    }
+
+    .header-inner-wrap {
+        height: 70px;
+        padding: 0 30px;
+    }
+
+    .header-item-list {
+        column-gap: 16px;
+    }
+
+    .header-item-list li {
+        font-size: 13px;
+    }
+
+    .title-wrap {
+        width: 80%;
+        position: relative;
+        left: 0;
+        margin: 0 auto;
+    }
+
+    .title-wrap p {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .title-wrap h1 {
+        font-size: 64px;
+        line-height: 1.1;
+        margin-bottom: 40px;
+    }
+
+    .title-wrap a {
+        font-size: 16px;
+        padding: 20px 48px;
+    }
+
+    .about-section,
+    .bg-color-section {
+        width: 100%;
+        background-color: var(--bg-color);
+        color: var(--sub-color);
+    }
+
+    .resavetion {
+        display: none;
+    }
+
+    #music-button {
+        display: flex;
+        color: #fff;
+        margin: 8px 16px 0 auto;
+        font-size: 12px;
+    }
+
+    #music-button i {
+        margin-top: -4px;
+        margin-left: 5px;
+    }
+
+    .about-section-inner-wrap,
+    .bg-color-inner-wrap {
+        width: 80%;
+        padding: 80px 0;
+    }
+
+    .section-title {
+        font-size: 40px;
+    }
+
+    .title-under-line {
+        height: 6px;
+        width: 60px;
+    }
+
+    .about-detail-wrap {
+        display: block;
+        column-gap: 27px;
+    }
+
+    .discription-wrap {
+        width: 100%;
+    }
+
+    .about-section-inner-wrap {
+        row-gap: 56px;
+    }
+
+    .discription-title {
+        font-size: 24px;
+        margin: 30px 0 16px 0;
+    }
+
+    .image-wrap img {
+        width: 100%;
+        margin-top: 40px;
+        box-shadow: 7px 7px var(--main-color);
+    }
+
+    /*-----
+ resavetion 
+ -----*/
+    .resavetion-section {
+        height: 250px;
+    }
+
+    .resavetion-section p {
+        font-size: 24px;
+    }
+
+    .resavetion-section a {
+        font-size: 16px;
+    }
+
+    /*-----
+ promotion 
+ -----*/
+    .video-wrap {
+        margin-top: 30px;
+    }
+
+    .news_ticker {
+        position: absolute;
+        right: 20px;
+        bottom: 50px;
+        width: 200px;
+    }
+
+    /*-----
+ footer 
+ -----*/
+    footer {
+        height: 108px;
+    }
+
+    .copy-right {
+        font-size: 11px;
+    }
+}
